@@ -48,14 +48,14 @@ void setup(){
   background(255);
   frameRate(frameRate_);
   
-  canva = loadImage("../canva_test.png");
+  canva = loadImage("data/canva_test.png");
 
   leap = new LeapMotion(this);
   
   minim = new Minim(this);
-  player = minim.loadFile("../TEXTE 2 VERSION FINALE.WAV");
+  player = minim.loadFile("data/TEXTE 2 VERSION FINALE.WAV");
   minim_intro = new Minim(this);
-  intro_sound = minim_intro.loadFile("../TEXTE 1 VERSION FINALE.WAV");
+  intro_sound = minim_intro.loadFile("data/TEXTE 1 VERSION FINALE.WAV");
   //player.play();
   //input = minim.getLineIn();
   
@@ -78,12 +78,11 @@ int[] XX = new int[0];
 int[] YY = new int[0];
 int tint = int(random(0,100));
 
-
-File folder = new File("/Users/Laura/Dropbox/MUSEOMIXLEMAN2014/sketch_matcH/individualDrawings");
+//MACHINE TRANSFER: the path below needs to be changed by the absolute path to the individualDrawing folder
+// /Users/Laura/Dropbox/MUSEOMIXLEMAN2014/sketch_matcH/individualDrawings
+File folder = new File("/Users/Laura/Documents/Freelance Projects/_work_in_progress/MuseomixLeman2014/museomix_corpsacorps");
 File[] listOfFiles = folder.listFiles();
 int userNumber = listOfFiles.length - 1; 
-//File folder2 = new File("/Users/Laura/Dropbox/MUSEOMIXLEMAN2014/sketch_matcH/collectiveDrawings");
-//File[] listOfFiles2 = folder2.listFiles();
 int collectiveNumber = userNumber; 
 
 
@@ -102,7 +101,7 @@ void draw(){
   }
   
   if(mode.equals("intro")){
-    if(nFrameInMode ==1){intro_sound = minim_intro.loadFile("../Voix Texte 1.WAV");}
+    if(nFrameInMode ==1){intro_sound = minim_intro.loadFile("data/TEXTE 1 VERSION FINALE.WAV");}
     intro_sound.play();
     
     colorMode(HSB, 100);
@@ -110,9 +109,9 @@ void draw(){
     int offsetX = -50;
     int offsetY = 50;
     float fact = 1.2;
-    if((nFrameInMode>25) & (nFrameInMode<=132)){PImage image1 = loadImage("../image1.png");image(image1,offsetX,offsetY);}
-    if((nFrameInMode>132) & (nFrameInMode<=230)){PImage image2 = loadImage("../image2.png");image(image2,offsetX,offsetY);}//,fact*image2.width, fact*image2.height
-    if(nFrameInMode>230){PImage image3 = loadImage("../image3.png");image(image3,offsetX,offsetY);}//,fact*image3.width, fact*image3.height
+    if((nFrameInMode>25) & (nFrameInMode<=132)){PImage image1 = loadImage("data/image1.png");image(image1,offsetX,offsetY);}
+    if((nFrameInMode>132) & (nFrameInMode<=230)){PImage image2 = loadImage("data/image2.png");image(image2,offsetX,offsetY);}//,fact*image2.width, fact*image2.height
+    if(nFrameInMode>230){PImage image3 = loadImage("data/image3.png");image(image3,offsetX,offsetY);}//,fact*image3.width, fact*image3.height
     
     //intro_film = new Movie(this,"start.mov");  
     //intro_film.play();
@@ -204,7 +203,7 @@ void draw(){
   }
   
   if(mode.equals("collective")){
-    if(nFrameInMode ==1){player = minim.loadFile("../TEXTE 2 VERSION FINALE.WAV");}
+    if(nFrameInMode ==1){player = minim.loadFile("data/TEXTE 2 VERSION FINALE.WAV");}
     player.play();
     background(50);
     if(nFrameInMode == 1){createCollectiveImage();} // in this function, the collectiveNumber is incremented
